@@ -1,0 +1,108 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Course {
+  name: String!
+}
+
+input CreateCourseInput {
+  name: String!
+  userId: Int!
+}
+
+input CreatePostInput {
+  content: String!
+  postId: Int!
+  title: String!
+  userId: Int!
+}
+
+input CreateUserInput {
+  email: String!
+  password: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type JwtModel {
+  accessToken: String!
+  refreshToken: String!
+}
+
+type Mutation {
+  createCourse(input: CreateCourseInput!): Course!
+  createPost(input: CreatePostInput!): Post!
+  createUser(input: CreateUserInput!): User!
+  deleteCourse(id: Int!): Course!
+  deletePost(id: Int!): Post!
+  deleteUser(id: Int!): User!
+  updateCourse(id: Int!, input: UpdateCourseInput!): Course!
+  updatePost(id: Int!, input: UpdatePostInput!): Post!
+  updateUser(id: Int!, input: UpdateUserInput!): User!
+}
+
+type Post {
+  comments: [PostComment!]!
+  content: String!
+  likes: [PostLike!]!
+  title: String!
+  user: User!
+}
+
+type PostComment {
+  content: String!
+  post: Post!
+  user: User!
+}
+
+type PostLike {
+  author: User!
+  post: Post!
+}
+
+type Query {
+  getAllCourses: [Course!]!
+  getAllPosts: [Post!]!
+  getAllUsers: [User!]!
+  getCourseById(id: Int!): Course!
+  getPostById(id: Int!): Post!
+  getUserById(id: Int!): User!
+  login(input: CreateUserInput!): JwtModel!
+  refreshToken(token: String!): User!
+  register(user: CreateUserInput!): JwtModel!
+}
+
+input UpdateCourseInput {
+  id: Int!
+  name: String
+  userId: Int!
+}
+
+input UpdatePostInput {
+  content: String
+  id: Int!
+  title: String
+}
+
+input UpdateUserInput {
+  email: String!
+  enabled: Boolean!
+  password: String!
+  username: String!
+}
+
+"""user"""
+type User {
+  email: String!
+  enabled: Boolean!
+  handicap: Float!
+  name: String!
+  password: String!
+  posts: [Post!]!
+  status: String!
+  timestamp: DateTime!
+}
