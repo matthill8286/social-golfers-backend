@@ -1,7 +1,8 @@
-import { InputType, Field, Int } from '@nestjs/graphql';
+import { InputType, Field, Int, PartialType } from '@nestjs/graphql';
+import { CreateRoundInput } from './create-round.input';
 
 @InputType()
-export class UpdateRoundInput {
+export class UpdateRoundInput extends PartialType(CreateRoundInput) {
   @Field(() => Int)
   id: number;
 

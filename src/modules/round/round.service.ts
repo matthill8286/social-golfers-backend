@@ -3,8 +3,7 @@ import { CreateRoundInput } from './dto/create-round.input';
 import { UpdateRoundInput } from './dto/update-round.input';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { RoundDocument } from './models/round.model';
-import { Round } from './entities/round.entity';
+import { Round, RoundDocument } from './models/round.model';
 
 @Injectable()
 export class RoundService {

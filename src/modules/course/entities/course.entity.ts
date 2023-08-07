@@ -1,11 +1,12 @@
 import { Prop, Schema } from '@nestjs/mongoose';
 
-import { Round } from 'src/modules/round/entities/round.entity';
 import { User } from 'src/modules/user/models/user.model';
 import { CourseRating } from './course-rating.entity';
 import { CourseReview } from './course-review.entity';
-import { Field, ObjectType } from '@nestjs/graphql';
+import { Field, Int, ObjectType } from '@nestjs/graphql';
 import { AbstractDocument } from 'src/libs/database/mongo';
+import { Round } from 'src/modules/round/models/round.model';
+import mongoose from 'mongoose';
 
 @ObjectType()
 @Schema({ timestamps: true })
@@ -15,20 +16,26 @@ export class Course extends AbstractDocument {
   name: string;
 
   @Prop()
+  @Field(() => String)
   location: string;
 
   @Prop()
+  @Field(() => Int)
   par: number;
 
-  @Prop()
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Round' })
+  @Field(() => [Round])
   rounds: Round[];
 
-  @Prop()
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'CourseReview' })
+  @Field(() => [CourseReview])
   reviews: CourseReview[];
 
-  @Prop()
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'CourseRating' })
+  @Field(() => [CourseRating])
   ratings: CourseRating[];
 
-  @Prop()
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
+  @Field(() => User)
   favoritedBy: User[];
 }

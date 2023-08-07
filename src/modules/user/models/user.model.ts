@@ -34,16 +34,12 @@ export class User extends AbstractDocument {
   @Field(() => String)
   password: string;
 
-  @Prop()
-  @Field(() => Number)
-  handicap: number;
-
   @Prop({ type: SchemaTypes.ObjectId, ref: 'Post' })
   @Type(() => Post)
   @Field(() => [Post])
   posts: Post[];
 
-  @Field(() => String)
+  @Field(() => EUserStatus)
   status: EUserStatus;
 
   @Prop({

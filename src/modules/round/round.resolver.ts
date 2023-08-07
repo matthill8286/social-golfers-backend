@@ -1,8 +1,8 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { RoundService } from './round.service';
-import { Round } from './entities/round.entity';
 import { CreateRoundInput } from './dto/create-round.input';
 import { UpdateRoundInput } from './dto/update-round.input';
+import { Round } from './models/round.model';
 
 @Resolver(() => Round)
 export class RoundResolver {
