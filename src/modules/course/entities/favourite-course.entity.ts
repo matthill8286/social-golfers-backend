@@ -1,22 +1,14 @@
 import { Prop, Schema } from '@nestjs/mongoose';
-import { Field } from '@nestjs/graphql';
-import { Types } from 'mongoose';
+import { Field, ObjectType } from '@nestjs/graphql';
 
 import { User } from 'src/modules/user/models/user.model';
-import { Course } from './course.entity';
+import { AbstractDocument } from 'src/libs/database/mongo';
+import mongoose from 'mongoose';
 
+@ObjectType()
 @Schema({ timestamps: true })
-export class FavoriteCourse {
-  @Field(() => String, { nullable: true })
-  @Prop()
-  _id?: Types.ObjectId;
-
-  @Prop()
+export class FavoriteCourse extends AbstractDocument {
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
+  @Field(() => User)
   user: User;
-
-  @Prop()
-  course: Course;
-
-  @Prop()
-  courseId: number;
 }

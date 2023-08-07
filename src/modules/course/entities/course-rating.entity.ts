@@ -1,19 +1,18 @@
 import { Prop, Schema } from '@nestjs/mongoose';
 
 import { User } from 'src/modules/user/models/user.model';
-import { Course } from './course.entity';
+import { Field, ObjectType } from '@nestjs/graphql';
+import { AbstractDocument } from 'src/libs/database/mongo';
+import mongoose from 'mongoose';
 
+@ObjectType()
 @Schema({ timestamps: true })
-export class CourseRating {
-  @Prop()
-  id: string;
-
-  @Prop()
+export class CourseRating extends AbstractDocument {
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
+  @Field(() => User)
   user: User;
 
   @Prop()
-  course: Course;
-
-  @Prop()
+  @Field(() => Number)
   rating: number;
 }

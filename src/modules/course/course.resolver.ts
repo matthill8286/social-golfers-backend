@@ -3,9 +3,8 @@ import { CourseService } from './course.service';
 import { CreateCourseInput } from './dto/create-course.input';
 import { UpdateCourseInput } from './dto/update-course.input';
 import { Course } from './entities/course.entity';
-// import { CourseReview } from './entities/course-review.entity';
 
-@Resolver((of) => [Course])
+@Resolver(() => [Course])
 export class CourseResolver {
   constructor(private readonly courseService: CourseService) {}
 
@@ -42,11 +41,4 @@ export class CourseResolver {
   ): Promise<Course> {
     return this.courseService.deleteCourse(id);
   }
-
-  // @Query(() => [CourseReview])
-  // async getCourseReviews(
-  //   @Args('id', { type: () => Int }) courseId: number,
-  // ): Promise<CourseReview[]> {
-  //   return this.courseService.getCourseReviews(courseId);
-  // }
 }
