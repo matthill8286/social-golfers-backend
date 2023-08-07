@@ -1,0 +1,169 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "John Doe",
+            "email": "john.doe@example.com",
+            "rounds": [
+                1,
+                2
+            ],
+            "friendships": [
+                2
+            ],
+            "posts": [
+                1,
+                2
+            ],
+            "courseReviews": [],
+            "courseRatings": [],
+            "tournamentParticipants": [],
+            "equipment": [
+                1
+            ],
+            "favoriteCourses": [],
+            "likedPosts": [],
+            "commentedPosts": []
+        },
+        {
+            "id": 2,
+            "name": "Jane Smith",
+            "email": "jane.smith@example.com",
+            "rounds": [
+                3
+            ],
+            "friendships": [
+                1
+            ],
+            "posts": [],
+            "courseReviews": [
+                1
+            ],
+            "courseRatings": [],
+            "tournamentParticipants": [],
+            "equipment": [],
+            "favoriteCourses": [
+                1
+            ],
+            "likedPosts": [],
+            "commentedPosts": []
+        }
+    ],
+    "courses": [
+        {
+            "id": 1,
+            "name": "Course A",
+            "reviews": [
+                1
+            ],
+            "ratings": [],
+            "favoritedBy": [
+                2
+            ],
+            "tournaments": [
+                1
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Course B",
+            "reviews": [],
+            "ratings": [],
+            "favoritedBy": [],
+            "tournaments": []
+        }
+    ],
+    "courseReviews": [
+        {
+            "id": 1,
+            "rating": 4.5,
+            "comment": "Great course!",
+            "user": 2,
+            "course": 1
+        }
+    ],
+    "rounds": [
+        {
+            "id": 1,
+            "date": "2023-07-28",
+            "user": 1
+        },
+        {
+            "id": 2,
+            "date": "2023-07-29",
+            "user": 1
+        },
+        {
+            "id": 3,
+            "date": "2023-07-30",
+            "user": 2
+        }
+    ],
+    "friendships": [
+        {
+            "id": 1,
+            "friendId": 1,
+            "user": 2
+        },
+        {
+            "id": 2,
+            "friendId": 2,
+            "user": 1
+        }
+    ],
+    "posts": [
+        {
+            "id": 1,
+            "title": "Post 1",
+            "content": "This is the content of Post 1",
+            "user": 1,
+            "likes": [
+                2
+            ],
+            "comments": [
+                1
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Post 2",
+            "content": "This is the content of Post 2",
+            "user": 1,
+            "likes": [],
+            "comments": []
+        }
+    ],
+    "postLikes": [],
+    "postComments": [
+        {
+            "id": 1,
+            "content": "Great post!",
+            "user": 2,
+            "post": 1
+        }
+    ],
+    "equipment": [
+        {
+            "id": 1,
+            "name": "Golf Club Set",
+            "user": 1
+        }
+    ],
+    "favoriteCourses": [
+        {
+            "id": 1,
+            "user": 2,
+            "course": 1
+        }
+    ],
+    "courseRatings": [],
+    "tournamentParticipants": [],
+    "tournaments": [
+        {
+            "id": 1,
+            "name": "Tournament 1",
+            "course": 1,
+            "participants": []
+        }
+    ]
+}
